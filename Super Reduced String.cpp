@@ -18,3 +18,46 @@ string superReducedString(string s)
     return s;
 }
 
+
+// Exercise Code for std::stack, std::reverse
+string superReducedString2(string s)
+{
+    string result;
+    std::stack<char> st;
+
+    for (int i = 0; i < s.length(); ++i)
+    {
+        if (st.empty())
+        {
+            st.push(s[i]);
+        }
+        else
+        {
+            if (st.top() == s[i])
+            {
+                st.pop();
+            }
+            else
+            {
+                st.push(s[i]);
+            }
+        }
+    }
+
+    if (st.empty())
+    {
+        result = "Empty String";
+    }
+    else
+    {
+        while (!st.empty())
+        {
+            result += st.top();
+            st.pop();
+        }
+
+        std::reverse(result.begin(), result.end());
+    }
+
+    return result;
+}
