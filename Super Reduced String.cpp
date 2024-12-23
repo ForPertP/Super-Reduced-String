@@ -1,35 +1,40 @@
 string superReducedString(string s)
 {
+   int n = s.length();
    int i = 0;
 
-    for (int j = 0; j < s.length(); ++j)
-    {
-        if (i > 0 && s[i-1] == s[j])
-        {
-            --i;
-        }
-        else
-        {
-            s[i++] = s[j];
-        }
-    }
-
-    return i == 0 ? "Empty String" : s.substr(0, i);
+   for (int j = 0; j < n; ++j)
+   {
+     if (i <= 0 || s[i-1] != s[j])
+     {
+         s[i++] = s[j];
+     }
+     else
+     {
+         --i;
+     }
+   }
+    
+   return i <= 0 ? "Empty String" : s.substr(0, i);
 }
 
-std::string superReducedString2(std::string s) {
+
+std::string superReducedString(std::string s)
+{
+    int n = s.length();
     std::string result = "";
 
-    for (int j = 0; j < s.length(); ++j) {
-        if (!result.empty() && result.back() == s[j])
+    for (int i = 0; i < n; ++i) {
+        if (result.empty() || result.back() != s[i])
         {
-            result.pop_back();
+            result += s[i];
         }
         else
         {
-            result += s[j];
+            result.pop_back();
         }
     }
 
     return result.empty() ? "Empty String" : result;
 }
+
