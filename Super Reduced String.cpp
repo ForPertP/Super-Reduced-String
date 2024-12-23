@@ -19,7 +19,7 @@ string superReducedString(string s)
 }
 
 
-std::string superReducedString(std::string s)
+std::string superReducedString2(std::string s)
 {
     int n = s.length();
     std::string result = "";
@@ -38,3 +38,29 @@ std::string superReducedString(std::string s)
     return result.empty() ? "Empty String" : result;
 }
 
+
+std::string superReducedString3(std::string s) {
+    std::string result;
+    std::stack<char> st;
+
+    for (int i = 0; i < s.length(); ++i) {
+        if (st.empty()) {
+            st.push(s[i]);
+        } else if (st.top() == s[i]) {
+            st.pop();
+        } else {
+            st.push(s[i]);
+        }
+    }
+
+    if (st.empty()) {
+        return "Empty String";
+    } else {
+        while (!st.empty()) {
+            result += st.top();
+            st.pop();
+        }
+        std::reverse(result.begin(), result.end());
+        return result;
+    }
+}
