@@ -21,8 +21,9 @@ string superReducedString(string s)
 
 string superReducedString2(string s)
 {
-    int n = s.length();
     string result = "";
+    int n = s.length();
+    
 
     for (int i = 0; i < n; ++i) {
         if (result.empty() || result.back() != s[i])
