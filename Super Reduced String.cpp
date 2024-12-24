@@ -1,3 +1,14 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+ * Complete the 'superReducedString' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
+
 string superReducedString(string s)
 {
    int n = s.length();
@@ -18,50 +29,18 @@ string superReducedString(string s)
    return i == 0 ? "Empty String" : s.substr(0, i);
 }
 
-
-string superReducedString2(string s)
+int main()
 {
-    string result = "";
-    int n = s.length();
-    
+    ofstream fout(getenv("OUTPUT_PATH"));
 
-    for (int i = 0; i < n; ++i) {
-        if (result.empty() || result.back() != s[i])
-        {
-            result += s[i];
-        }
-        else
-        {
-            result.pop_back();
-        }
-    }
+    string s;
+    getline(cin, s);
 
-    return result.empty() ? "Empty String" : result;
-}
+    string result = superReducedString(s);
 
+    fout << result << "\n";
 
-string superReducedString3(string s)
-    string result;
-    stack<char> st;
+    fout.close();
 
-    for (int i = 0; i < s.length(); ++i) {
-        if (st.empty()) {
-            st.push(s[i]);
-        } else if (st.top() == s[i]) {
-            st.pop();
-        } else {
-            st.push(s[i]);
-        }
-    }
-
-    if (st.empty()) {
-        return "Empty String";
-    } else {
-        while (!st.empty()) {
-            result += st.top();
-            st.pop();
-        }
-        std::reverse(result.begin(), result.end());
-        return result;
-    }
+    return 0;
 }
