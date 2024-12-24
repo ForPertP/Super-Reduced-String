@@ -5,7 +5,7 @@ string superReducedString(string s)
 
    for (int j = 0; j < n; ++j)
    {
-     if (i <= 0 || s[i-1] != s[j])
+     if (i == 0 || s[i-1] != s[j])
      {
          s[i++] = s[j];
      }
