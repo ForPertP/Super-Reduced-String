@@ -26,6 +26,7 @@ string superReducedString(string s)
      }
    }
     
+    
    return i == 0 ? "Empty String" : s.substr(0, i);
 }
 
