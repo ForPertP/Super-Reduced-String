@@ -19,10 +19,10 @@ string superReducedString(string s)
 }
 
 
-std::string superReducedString2(std::string s)
+string superReducedString2(string s)
 {
     int n = s.length();
-    std::string result = "";
+    string result = "";
 
     for (int i = 0; i < n; ++i) {
         if (result.empty() || result.back() != s[i])
@@ -39,9 +39,9 @@ std::string superReducedString2(std::string s)
 }
 
 
-std::string superReducedString3(std::string s) {
-    std::string result;
-    std::stack<char> st;
+string superReducedString3(string s)
+    string result;
+    stack<char> st;
 
     for (int i = 0; i < s.length(); ++i) {
         if (st.empty()) {
