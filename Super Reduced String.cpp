@@ -12,21 +12,21 @@ using namespace std;
 string superReducedString(string s)
 {
     int n = s.length();
-    int i = 0;
+    int top = 0;
 
-    for (int j = 0; j < n; ++j)
+    for (int i = 0; i < n; ++i)
     {
-        if (i == 0 || s[i-1] != s[j])
+        if (top == 0 || s[top-1] != s[i])
         {
-            s[i++] = s[j];
+            s[top++] = s[i];
         }
         else
         {
-            --i;
+            --top;
         }
     }
 
-    return i == 0 ? "Empty String" : s.substr(0, i);
+    return top == 0 ? "Empty String" : s.substr(0, top);
 }
 
 
