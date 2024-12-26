@@ -30,6 +30,27 @@ string superReducedString(string s)
 }
 
 
+string superReducedString2(string s)
+{
+    int n = s.length();
+    string result{};
+
+    for (int i = 0; i < n; ++i)
+    {
+        if (result.empty() || result.back() != s[i])
+        {
+            result.push_back(s[i]);
+        }
+        else
+        {
+            result.pop_back();
+        }
+    }
+
+    return result.empty() ? "Empty String" : result;
+}
+
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
