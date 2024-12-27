@@ -51,6 +51,28 @@ string superReducedString2(string s)
 }
 
 
+std::string superReducedString3(std::string s) {
+    std::stack<char> st;
+    string result{};
+
+    for (char i : s) {
+        if (st.empty() || st.top() != i) {
+            st.push(i);
+        } else {
+            st.pop();
+        }
+    }
+
+    while (!st.empty()) {
+        result.push_back(st.top());
+        st.pop();
+    }
+
+    std::reverse(result.begin(), result.end());
+    return result.empty() ? "Empty String" : result;
+}
+
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
