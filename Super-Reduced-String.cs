@@ -24,10 +24,25 @@ class Result
 
     public static string superReducedString(string s)
     {
-
+        int n = s.Length;
+        StringBuilder sb = new StringBuilder();
+        
+        foreach (char i in s)
+        {
+            if (sb.Length == 0 || sb[sb.Length-1] != i)
+            {
+                sb.Append(i);
+            }
+            else
+            {
+                sb.Remove(sb.Length - 1, 1);
+            }
+        }
+        
+        return sb.Length == 0 ? "Empty String" : sb.ToString();
     }
-
 }
+
 
 class Solution
 {
