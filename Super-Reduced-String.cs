@@ -24,14 +24,13 @@ class Result
 
     public static string superReducedString(string s)
     {
-        int n = s.Length;
         StringBuilder sb = new StringBuilder();
         
-        foreach (char i in s)
+        foreach (char c in s)
         {
-            if (sb.Length == 0 || sb[sb.Length-1] != i)
+            if (sb.Length == 0 || sb[sb.Length-1] != c)
             {
-                sb.Append(i);
+                sb.Append(c);
             }
             else
             {
