@@ -40,6 +40,28 @@ class Result
         
         return sb.Length == 0 ? "Empty String" : sb.ToString();
     }
+
+
+    public static string superReducedString3(string s)
+    {
+        Stack<char> st = new Stack<char>();
+        foreach (char c in s)
+        {
+            if (st.Count == 0 || st.Peek() != c)
+                st.Push(c);
+            else
+                st.Pop();
+        }
+
+        List<char> result = new List<char>();
+        while (st.Count > 0)
+        {
+            result.Add(st.Pop());
+        }
+        result.Reverse();
+        
+        return result.Count == 0 ? "Empty String" : new string(result.ToArray());
+    }
 }
 
 
