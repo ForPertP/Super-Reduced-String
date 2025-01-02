@@ -41,7 +41,29 @@ class Result
         return sb.Length == 0 ? "Empty String" : sb.ToString();
     }
 
+    
+    public static string superReducedString2(string s)
+    {
+        int n = s.Length;
+        int top = 0;
+        char[] stack = s.ToCharArray();
 
+        for (int i = 0; i < n; ++i)
+        {
+            if (top == 0 || stack[top - 1] != stack[i])
+            {
+                stack[top++] = stack[i];
+            }
+            else
+            {
+                --top;
+            }
+        }
+
+        return top == 0 ? "Empty String" : new string(stack, 0, top);
+    }    
+
+    
     public static string superReducedString3(string s)
     {
         Stack<char> st = new Stack<char>();
