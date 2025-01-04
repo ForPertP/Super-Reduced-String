@@ -12,7 +12,14 @@ import static java.util.stream.Collectors.toList;
 
 class Result {
 
-  public static String superReducedString(String s) {
+    /*
+     * Complete the 'superReducedString' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String superReducedString(String s) {
         StringBuilder sb = new StringBuilder();
 
         for (char c : s.toCharArray()) {
@@ -25,6 +32,22 @@ class Result {
 
         return sb.length() == 0 ? "Empty String" : sb.toString();
     }
+
 }
 
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
+        String s = bufferedReader.readLine();
+
+        String result = Result.superReducedString(s);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
