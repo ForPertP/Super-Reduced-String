@@ -33,6 +33,20 @@ class Result {
         return sb.length() == 0 ? "Empty String" : sb.toString();
     }
 
+   public static String superReducedString2(String s) {
+        char[] stack = s.toCharArray();
+        int top = 0;
+
+        for (int i = 0; i < stack.length; ++i) {
+            if (top == 0 || stack[top - 1] != stack[i]) {
+                stack[top++] = stack[i];
+            } else {
+                --top;
+            }
+        }
+
+        return top == 0 ? "Empty String" : new String(stack, 0, top);
+    }
 }
 
 public class Solution {
