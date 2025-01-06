@@ -47,6 +47,10 @@ class Result {
 
         return top == 0 ? "Empty String" : new String(stack, 0, top);
     }
+
+   public static String superReducedString3(String s) {
+   }
+    
 }
 
 public class Solution {
