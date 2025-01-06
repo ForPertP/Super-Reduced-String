@@ -33,6 +33,7 @@ class Result {
         return sb.length() == 0 ? "Empty String" : sb.toString();
     }
 
+    
    public static String superReducedString2(String s) {
         char[] stack = s.toCharArray();
         int top = 0;
@@ -48,10 +49,28 @@ class Result {
         return top == 0 ? "Empty String" : new String(stack, 0, top);
     }
 
-   public static String superReducedString3(String s) {
-   }
     
+   public static String superReducedString3(String s) {
+        Stack<Character> st = new Stack<>();
+        
+        for (char c : s.toCharArray()) {
+            if (st.isEmpty() || st.peek() != c) {
+                st.push(c);
+            } else {
+                st.pop();
+            }
+        }
+        
+        StringBuilder result = new StringBuilder();
+        while (!st.isEmpty()) {
+            result.append(st.pop());
+        }
+        result.reverse();
+        
+        return result.length() == 0 ? "Empty String" : result.toString();       
+   }
 }
+
 
 public class Solution {
     public static void main(String[] args) throws IOException {
